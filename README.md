@@ -1,1 +1,1 @@
-# FootballClubsBattle
+# Smart Contract FootballClubsBattle
