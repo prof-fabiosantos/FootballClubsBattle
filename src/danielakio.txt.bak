@@ -1,0 +1,66 @@
+
+Página 11
+
+Uma curiosidade:
+
+Qual foi a razão para escolha da Computação Evolucionária, especialmente, 
+a neuro evolução para o treinamendo da rede neural que será usada pela ferramenta?
+
+Por que não usar a retropropagação,conhecido também como backpropagation
+
+Que é uma das técnicas mais populares para treinamento de uma rede neural,
+ ela é baseada na correção dos pesos pela diferença entre o valor obtido
+e o esperado pelo algoritmo durante o treinamento.
+
+ 
+Seção sobre Computação Evolucionária
+"
+Esses algoritmos possuem uma ótima capacidade de otimização de problemas,
+ou seja, sua habilidade de melhorar o desempenho de soluções em problemas nos quais existem
+um grande espaço de possibilidades é muito boa."
+
+Como você sabe que é muito boa? Você já realizou alguma avaliação?
+
+Afirmação sem referência e informal.
+
+"Com o constante crescimento do mercado de jogos e o proporcional aumento do número
+de jogadores, a quantidade de pessoas que não serão capazes de jogar devido à uma limitação
+física ou mental também se amplificará."
+
+Existe algum estudo sobre isso?
+
+
+
+"Portanto, este trabalho deve entrar em detalhes na construção de uma ferramenta que
+seja capaz de auxiliar pessoas com esses problemas de limitação"
+
+De que forma o seu trabalho, especialmente a ferramenta que será construída deverá ser capaz de auxiliar pessoas com deficiência? 
+
+"pessoas com problemas de limitação" não é adequado
+
+Não existe um segmento populacional composto por pessoas com necessidades especiais. O que existe é o segmento das pessoas com deficiência.
+Não podemos utilizar o termo “pessoas com problemas de limitação” como se estas pessoas formassem um segmento.
+
+
+
+Qual será metodo de desenvovimento de software que será empregada no seu trabaho?
+
+Qual será a abordagem e tarefa de aprendizagem de máquina que será empregada no seu trabalho?
+
+Você colocou que um dos objetivos especificos consistem em: Implementar, treinar e validar o algoritmo escolhido.
+Como o algoritmo será avaliado?
+
+Como será realizada a avaliação da ferramenta?
+
+Resumo 
+Artigo? ou Monografia?
+
+Você se refere ao texto do seu TCC como artigo, lendo seu trabalho eu constatei que é na verdade uma monografia.
+
+Sobre o cronograma
+
+Cronograma solto, desperdício de espaço
+
+Revisão de erros de ortografia e concordância verbal
+
+Resultados e Considerações parciais

@@ -1,0 +1,85 @@
+//Autor: Prof. Fabio Santos (fssilva@uea.edu.br)
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.6;
+
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
+
+contract FootballBattleClubsContract is ERC721  {
+
+    struct FootballClub {
+        uint id;
+        string name;
+        uint year;
+        uint total_title;
+        uint level;
+        uint value;
+        string status;        
+    }
+
+    struct OwnerFootballClub {
+        address owner;
+        uint footbalClub_Id;
+    }         
+  
+
+    FootballClub[] public footballClubs;
+    OwnerFootballClub[] public OwnersFootballClub;
+    address public gameOwner;
+    
+
+    constructor () ERC721("Football Token", "FTB") {
+        gameOwner = msg.sender;
+    }
+      
+    modifier onlyOwnerOf(uint _attackingClub) {
+        require(ownerOf(_attackingClub) == msg.sender, "Deve ser o proprietario do footballClub para batalhar");
+        _;
+    }   
+
+    function createNewFootballClub(string memory _name, uint _year, uint _total_title, uint _value) public {
+        require(msg.sender == gameOwner, "Somente o proprietatio do jogo pode criar um novo Football Clubd card");
+        uint _id = footballClubs.length;
+        string memory _status = "disponivel";
+        uint _level = 1;
+        address _owner = msg.sender;
+        footballClubs.push(FootballClub(_id, _name, _year, _total_title, _level, _value, _status));
+        _safeMint(_owner, _id);        
+    }
+
+    function battle(uint _attackingFootballClub, uint _defendingFootballClub) public onlyOwnerOf(_attackingFootballClub) {
+        FootballClub storage attacker = footballClubs[_attackingFootballClub];
+        FootballClub storage defender = footballClubs[_defendingFootballClub];
+
+        if (attacker.level >= defender.level) {
+            attacker.level += 2;
+            defender.level += 1;
+        }
+        else{
+            attacker.level += 1;
+            defender.level += 2;
+        }
+    }
+
+
+    function updateOwnerFootballClub(address payable _user, uint _footbalClub_Id) public {
+      OwnersFootballClub.push(OwnerFootballClub(_user, _footbalClub_Id));
+    }
+
+    function get_All_OwnersFootballClubs() view public returns (OwnerFootballClub[] memory){
+        return OwnersFootballClub;
+    }
+
+    function get_All_FootballClubs() view public returns (FootballClub[] memory){
+        return footballClubs;
+    }
+   
+    function sendEth(address payable _user, uint _FootballClub_id) public payable {
+       require(msg.value == footballClubs[_FootballClub_id].value);
+       (bool didSend, ) = _user.call{value: msg.value}("");
+       footballClubs[_FootballClub_id].status = "vendido";
+       updateOwnerFootballClub(_user,_FootballClub_id);       
+       require(didSend);
+   }
+
+
+}
